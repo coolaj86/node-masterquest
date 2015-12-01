@@ -71,18 +71,25 @@ function loadMq(masterquest, db) {
     , children: [ 'stacey@email.com' ]
     };
 
-    store.Persons.upsert(john.id, john).then(function () {
+    //
+    // Examples
+    //
+
+    store.Persons.upsert(john).then(function () {
       // note: if `dog` existed, it will be overwritten, not merged
       // note: `children` will be removed before save
-
-      store.Persons.get('john.doe@email.com').then(function (data) {
-        // dog will be rehydrated from json
-        // children will not be fetched and attached
-        console.log(data);
-      });
-
     });
 
+    store.Persons.get('john.doe@email.com').then(function (record) {
+      // dog will be rehydrated from json
+      // children will not be fetched and attached
+      console.log(record);
+    });
+
+    store.Persons.find({ firstName: 'john' }, { limit: 5, orderBy: 'lastName' }).then(function (records) {
+      // will find all records exactly matching 'john' for firstName
+      console.log(record);
+    });
   });
 }
 ```
