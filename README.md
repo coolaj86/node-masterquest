@@ -163,12 +163,28 @@ You can only add indexes. You cannot rename or remove them.
 
 To add an index, simply change the schema.
 
+### For example
+
+If you had this schema
+
 ```javascript
-{ modelname: 'persons'
+{ modelname: 'Persons'
 , indices: [ 'firstName', 'lastName' ]
 , hasMany: [ 'children' ]
 }
 ```
+
+And you then created this schema:
+
+```javascript
+{ modelname: 'Persons'
+, indices: [ 'firstName', 'lastName', 'favoriteColor' ]
+, hasMany: [ 'children' ]
+}
+```
+
+Then `favoriteColor` would be added as an index.
+
 
 LICENSE
 =======
