@@ -118,7 +118,7 @@ if (process.env.DATABASE_URL) {
   // use PostgreSQL on Heroku
   usePostgreSql();
 } else {
-  // use SQLite3 on Digital Ocean
+  // use SQLite3 on Raspberry Pi or Digital Ocean
   useSqlite3();
 }
 ```
